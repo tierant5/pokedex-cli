@@ -1,6 +1,6 @@
 package main
 
-import "github.com/tierant5/pokedex-cli/internal/pokecache"
+import "github.com/tierant5/pokedex-cli/internal/pokeapi"
 
 type cliCommand struct {
 	callback    func(config *config) error
@@ -9,9 +9,9 @@ type cliCommand struct {
 }
 
 type config struct {
-	Cache    *pokecache.Cache
-	Next     string
-	Previous string
+	pokeapiClient pokeapi.Client
+	Next          string
+	Previous      string
 }
 
 func getCommands() map[string]cliCommand {
