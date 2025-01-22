@@ -21,7 +21,7 @@ type PokemonEncounters struct {
 	Pokemon Pokemon `json:"pokemon"`
 }
 
-func (l LocationAreaInfo) getApiResource() string {
+func (l LocationAreaInfo) GetApiResource() string {
 	return "location-area/"
 }
 

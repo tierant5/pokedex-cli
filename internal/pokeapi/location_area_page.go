@@ -19,6 +19,6 @@ func (l LocationAreaPage) PrintAreas() {
 	}
 }
 
-func (l LocationAreaPage) getApiResource() string {
+func (l LocationAreaPage) GetApiResource() string {
 	return "location-area/"
 }

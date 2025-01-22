@@ -5,5 +5,5 @@ const (
 )
 
 type PokeAPIType interface {
-	getApiResource() string
+	GetApiResource() string
 }

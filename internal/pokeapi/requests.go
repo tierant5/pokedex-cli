@@ -11,7 +11,7 @@ func GetPokeAPIType[T PokeAPIType](c *Client, url string) (T, error) {
 	var zeroT T
 	var pokeApiType T
 	if url == "" {
-		fullUrl := BaseUrl + pokeApiType.getApiResource()
+		fullUrl := BaseUrl + pokeApiType.GetApiResource()
 		url = fullUrl
 	}
 
