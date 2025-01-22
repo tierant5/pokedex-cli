@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
+
+	"github.com/tierant5/pokedex-cli/internal/pokecache"
 )
 
 func startREPL() {
@@ -12,6 +15,7 @@ func startREPL() {
 	scanner := bufio.NewScanner(os.Stdin)
 	prompt := "Pokedex > "
 	config := config{}
+	config.Cache = pokecache.NewCache(5 * time.Second)
 	for {
 		fmt.Print(prompt)
 		scanner.Scan()

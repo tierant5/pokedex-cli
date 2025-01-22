@@ -1,5 +1,7 @@
 package main
 
+import "github.com/tierant5/pokedex-cli/internal/pokecache"
+
 type cliCommand struct {
 	callback    func(config *config) error
 	name        string
@@ -7,6 +9,7 @@ type cliCommand struct {
 }
 
 type config struct {
+	Cache    *pokecache.Cache
 	Next     string
 	Previous string
 }
