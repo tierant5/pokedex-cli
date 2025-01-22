@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/tierant5/pokedex-cli/internal/pokeapi"
 )
 
-func commandMap(config *config) error {
-	page, err := config.pokeapiClient.GetLocationAreaPage(config.Next)
+func commandMap(config *config, params []string) error {
+	page, err := pokeapi.GetPokeAPIType[pokeapi.LocationAreaPage](&config.pokeapiClient, config.Next)
 	if err != nil {
 		return err
 	}
@@ -23,12 +25,12 @@ func commandMap(config *config) error {
 	return nil
 }
 
-func commandMapb(config *config) error {
+func commandMapb(config *config, params []string) error {
 	if config.Previous == "" {
 		fmt.Println("you're on the first page")
 		return nil
 	}
-	page, err := config.pokeapiClient.GetLocationAreaPage(config.Previous)
+	page, err := pokeapi.GetPokeAPIType[pokeapi.LocationAreaPage](&config.pokeapiClient, config.Previous)
 	if err != nil {
 		return err
 	}

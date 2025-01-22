@@ -24,7 +24,7 @@ func startREPL(cfg *config) {
 			fmt.Printf("unknown command: %s\n", cleanedInput[0])
 			continue
 		}
-		err := command.callback(cfg)
+		err := command.callback(cfg, cleanedInput[1:])
 		if err != nil {
 			fmt.Printf("something went wrong...\n%v", fmt.Errorf("%w", err))
 		}

@@ -1,5 +1,9 @@
 package pokeapi
 
 const (
-	baseUrl = "https://pokeapi.co/api/v2/"
+	BaseUrl = "https://pokeapi.co/api/v2/"
 )
+
+type PokeAPIType interface {
+	getApiResource() string
+}

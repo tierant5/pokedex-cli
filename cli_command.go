@@ -3,7 +3,7 @@ package main
 import "github.com/tierant5/pokedex-cli/internal/pokeapi"
 
 type cliCommand struct {
-	callback    func(config *config) error
+	callback    func(config *config, params []string) error
 	name        string
 	description string
 }
@@ -35,6 +35,11 @@ func getCommands() map[string]cliCommand {
 			name:        "mapb",
 			description: "Display the previous 20 location areas in the Pokemon world",
 			callback:    commandMapb,
+		},
+		"explore": {
+			name:        "explore <area-name>",
+			description: "Explore the <area-name>",
+			callback:    commandExplore,
 		},
 	}
 }

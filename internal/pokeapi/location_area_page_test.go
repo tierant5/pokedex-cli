@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestLocationArea(t *testing.T) {
+func TestLocationAreaPage(t *testing.T) {
 	testNextUrl := "https://pokeapi.co/api/v2/location-area/?offset=20&limit=20"
 	cases := []struct {
 		input    string

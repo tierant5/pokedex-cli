@@ -18,3 +18,7 @@ func (l LocationAreaPage) PrintAreas() {
 		fmt.Println(result.Name)
 	}
 }
+
+func (l LocationAreaPage) getApiResource() string {
+	return "location-area/"
+}
