@@ -308,6 +308,27 @@ func TestPokemonInfo(t *testing.T) {
 				ID:             35,
 				Name:           "clefairy",
 				BaseExperience: 113,
+				Height:         6,
+				Weight:         75,
+				Stats: []Stats{
+					{
+						BaseStat: 35,
+						Effort:   0,
+						Stat: Stat{
+							Name: "speed",
+							URL:  "https://pokeapi.co/api/v2/stat/6/",
+						},
+					},
+				},
+				Types: []Types{
+					{
+						Slot: 1,
+						Type: Type{
+							Name: "fairy",
+							URL:  "https://pokeapi.co/api/v2/type/18/",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -325,6 +346,43 @@ func TestPokemonInfo(t *testing.T) {
 		}
 		if c.expected.BaseExperience != pokemonInfo.BaseExperience {
 			t.Errorf("%v != %v", c.expected.BaseExperience, pokemonInfo.BaseExperience)
+		}
+		if c.expected.Height != pokemonInfo.Height {
+			t.Errorf("%v != %v", c.expected.Height, pokemonInfo.Height)
+		}
+		if c.expected.Weight != pokemonInfo.Weight {
+			t.Errorf("%v != %v", c.expected.Weight, pokemonInfo.Weight)
+		}
+		if len(c.expected.Stats) != len(pokemonInfo.Stats) {
+			t.Errorf("%v != %v", len(c.expected.Stats), len(pokemonInfo.Stats))
+		}
+		for i, stat := range c.expected.Stats {
+			if stat.BaseStat != pokemonInfo.Stats[i].BaseStat {
+				t.Errorf("%v != %v", stat.BaseStat, pokemonInfo.Stats[i].BaseStat)
+			}
+			if stat.Effort != pokemonInfo.Stats[i].Effort {
+				t.Errorf("%v != %v", stat.Effort, pokemonInfo.Stats[i].Effort)
+			}
+			if stat.Stat.Name != pokemonInfo.Stats[i].Stat.Name {
+				t.Errorf("%v != %v", stat.Stat.Name, pokemonInfo.Stats[i].Stat.Name)
+			}
+			if stat.Stat.URL != pokemonInfo.Stats[i].Stat.URL {
+				t.Errorf("%v != %v", stat.Stat.URL, pokemonInfo.Stats[i].Stat.URL)
+			}
+		}
+		if len(c.expected.Types) != len(pokemonInfo.Types) {
+			t.Errorf("%v != %v", len(c.expected.Types), len(pokemonInfo.Types))
+		}
+		for i, ptype := range c.expected.Types {
+			if ptype.Slot != pokemonInfo.Types[i].Slot {
+				t.Errorf("%v != %v", ptype.Slot, pokemonInfo.Types[i].Slot)
+			}
+			if ptype.Type.Name != pokemonInfo.Types[i].Type.Name {
+				t.Errorf("%v != %v", ptype.Type.Name, pokemonInfo.Types[i].Type.Name)
+			}
+			if ptype.Type.URL != pokemonInfo.Types[i].Type.URL {
+				t.Errorf("%v != %v", ptype.Type.URL, pokemonInfo.Types[i].Type.URL)
+			}
 		}
 	}
 }

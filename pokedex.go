@@ -14,3 +14,8 @@ func (p *Pokedex) AddPokemon(pokemon pokeapi.PokemonInfo) error {
 	p.pokemon[pokemon.Name] = pokemon
 	return nil
 }
+
+func (p *Pokedex) GetPokemon(name string) (pokeapi.PokemonInfo, bool) {
+	pokemonInfo, ok := p.pokemon[name]
+	return pokemonInfo, ok
+}
